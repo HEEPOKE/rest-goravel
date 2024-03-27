@@ -33,7 +33,7 @@ func init() {
 	config := facades.Config()
 	config.Add("app", map[string]any{
 		"name":     config.Env("APP_NAME", "Goravel"),
-		"env":      config.Env("APP_ENV", "production"),
+		"env":      config.Env("APP_ENV"),
 		"debug":    config.Env("APP_DEBUG", false),
 		"timezone": carbon.UTC,
 		"key":      config.Env("APP_KEY", ""),
