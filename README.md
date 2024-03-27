@@ -1,9 +1,3 @@
----
-runme:
-  id: 01HSTGECX42CFVKYT96R9H4Z13
-  version: v3
----
-
 # rest-goravel
 
 ## config Environment
