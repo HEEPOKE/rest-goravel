@@ -7,10 +7,8 @@ import (
 func init() {
 	config := facades.Config()
 	config.Add("database", map[string]any{
-		// Default database connection name
-		"default": config.Env("DB_CONNECTION", "mysql"),
+		"default": config.Env("DB_CONNECTION", "postgresql"),
 
-		// Database connections
 		"connections": map[string]any{
 			"mysql": map[string]any{
 				"driver":   "mysql",
@@ -22,25 +20,25 @@ func init() {
 				"charset":  "utf8mb4",
 				"loc":      "Local",
 				"prefix":   "",
-				"singular": false, // Table name is singular
+				"singular": false,
 			},
 			"postgresql": map[string]any{
 				"driver":   "postgresql",
 				"host":     config.Env("DB_HOST", "127.0.0.1"),
 				"port":     config.Env("DB_PORT", 5432),
-				"database": config.Env("DB_DATABASE", "forge"),
+				"database": config.Env("DB_DATABASE", ""),
 				"username": config.Env("DB_USERNAME", ""),
 				"password": config.Env("DB_PASSWORD", ""),
 				"sslmode":  "disable",
-				"timezone": "UTC", //Asia/Shanghai
+				"timezone": "UTC",
 				"prefix":   "",
-				"singular": false, // Table name is singular
+				"singular": false,
 			},
 			"sqlite": map[string]any{
 				"driver":   "sqlite",
 				"database": config.Env("DB_DATABASE", "forge"),
 				"prefix":   "",
-				"singular": false, // Table name is singular
+				"singular": false,
 			},
 			"sqlserver": map[string]any{
 				"driver":   "sqlserver",
@@ -51,7 +49,7 @@ func init() {
 				"password": config.Env("DB_PASSWORD", ""),
 				"charset":  "utf8mb4",
 				"prefix":   "",
-				"singular": false, // Table name is singular
+				"singular": false,
 			},
 		},
 

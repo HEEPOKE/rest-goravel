@@ -10,7 +10,7 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o ./tmp/main ./cmd/main.go
+RUN go build -o ./storage/temp/main main.go
  
 EXPOSE 6476
 

@@ -8,13 +8,13 @@ services:
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_DB: ${DB_DATABASE}
     networks:
       - Heepoke
 
   redis:
     image: redis:latest
-    container_name: fiber-redis
+    container_name: goravel-redis
     hostname: redis
     env_file:
       - .env
@@ -25,7 +25,6 @@ services:
       - redis-data:/var/lib/redis
       - "./pkg/redis/conf/generate.conf:/usr/local/etc/redis/redis.conf"
     environment:
-      REDIS_REPLICATION_MODE: ${REDIS_REPLICATION_MODE}
       REDIS_PASSWORD: 
     networks:
       - Heepoke
@@ -34,14 +33,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: fiber-api
+    container_name: goravel-api
     env_file:
       - .env
     volumes:
       - .:/app
     working_dir: /app
     ports:
-      - ${PORT}:${PORT}
+      - ${APP_PORT}:${APP_PORT}
     depends_on:
       - goravel-db
       - redis
