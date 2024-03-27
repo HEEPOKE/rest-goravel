@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
+        "gofiber",
         "goravel",
+        "prefork",
         "sqlserver",
-        "sslmode"
+        "sslmode",
+        "tmpl"
     ]
 }
